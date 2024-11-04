@@ -3,6 +3,7 @@ namespace ImageProcessing
     public partial class Form1 : Form
     {
         Bitmap loaded, processed;
+        Bitmap imageB, imageA, colorgreen, resultImage;
         public Form1()
         {
             InitializeComponent();
@@ -96,6 +97,79 @@ namespace ImageProcessing
             }
             pictureBox2.Image = processed;
         }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openFileDialog2.ShowDialog();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog2_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            imageB = new Bitmap(openFileDialog2.FileName);
+            pictureBox3.Image = imageB;
+        }
+
+        private void openFileDialog3_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            imageA = new Bitmap(openFileDialog3.FileName);
+            pictureBox4.Image = imageA;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openFileDialog3.ShowDialog();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveSecondImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog2.ShowDialog();
+        }
+
+        private void saveFileDialog2_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            resultImage.Save(saveFileDialog2.FileName);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            resultImage = new Bitmap(imageB.Width, imageB.Height);
+            int threshold = 150;
+
+            for (int x = 0; x < imageB.Width; x++)
+            {
+                for (int y = 0; y < imageB.Height; y++)
+                {
+                    Color pixel = imageB.GetPixel(x, y);
+                    Color backpixel = imageA.GetPixel(x, y);
+                    if (pixel.G > threshold && pixel.R < threshold / 2 && pixel.B < threshold / 2)
+                        resultImage.SetPixel(x, y, backpixel);
+                    else
+                        resultImage.SetPixel(x, y, pixel);
+                }
+            }
+            pictureBox5.Image = resultImage;
+        }
+
 
         private void mirrorVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
