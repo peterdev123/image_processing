@@ -150,6 +150,12 @@ namespace ImageProcessing
             resultImage.Save(saveFileDialog2.FileName);
         }
 
+        private void histogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BasicDIP.Histogram(ref loaded, ref processed);
+            pictureBox2.Image = processed;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             resultImage = new Bitmap(imageB.Width, imageB.Height);

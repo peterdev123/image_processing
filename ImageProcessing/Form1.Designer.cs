@@ -53,6 +53,7 @@
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
+            this.histogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -112,7 +113,8 @@
             this.inversionToolStripMenuItem,
             this.mirrorVerticalToolStripMenuItem,
             this.mirrorHorizontalToolStripMenuItem,
-            this.sepiaColorToolStripMenuItem});
+            this.sepiaColorToolStripMenuItem,
+            this.histogramToolStripMenuItem});
             this.dIPToolStripMenuItem.Name = "dIPToolStripMenuItem";
             this.dIPToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.dIPToolStripMenuItem.Text = "DIP";
@@ -120,42 +122,42 @@
             // pixelcopyToolStripMenuItem
             // 
             this.pixelcopyToolStripMenuItem.Name = "pixelcopyToolStripMenuItem";
-            this.pixelcopyToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.pixelcopyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pixelcopyToolStripMenuItem.Text = "Pixelcopy";
             this.pixelcopyToolStripMenuItem.Click += new System.EventHandler(this.pixelcopyToolStripMenuItem_Click);
             // 
             // greyScalingToolStripMenuItem
             // 
             this.greyScalingToolStripMenuItem.Name = "greyScalingToolStripMenuItem";
-            this.greyScalingToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.greyScalingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.greyScalingToolStripMenuItem.Text = "GreyScaling";
             this.greyScalingToolStripMenuItem.Click += new System.EventHandler(this.greyScalingToolStripMenuItem_Click);
             // 
             // inversionToolStripMenuItem
             // 
             this.inversionToolStripMenuItem.Name = "inversionToolStripMenuItem";
-            this.inversionToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.inversionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inversionToolStripMenuItem.Text = "Inversion";
             this.inversionToolStripMenuItem.Click += new System.EventHandler(this.inversionToolStripMenuItem_Click);
             // 
             // mirrorVerticalToolStripMenuItem
             // 
             this.mirrorVerticalToolStripMenuItem.Name = "mirrorVerticalToolStripMenuItem";
-            this.mirrorVerticalToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.mirrorVerticalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mirrorVerticalToolStripMenuItem.Text = "Mirror Vertical";
             this.mirrorVerticalToolStripMenuItem.Click += new System.EventHandler(this.mirrorVerticalToolStripMenuItem_Click);
             // 
             // mirrorHorizontalToolStripMenuItem
             // 
             this.mirrorHorizontalToolStripMenuItem.Name = "mirrorHorizontalToolStripMenuItem";
-            this.mirrorHorizontalToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.mirrorHorizontalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mirrorHorizontalToolStripMenuItem.Text = "Mirror Horizontal";
             this.mirrorHorizontalToolStripMenuItem.Click += new System.EventHandler(this.mirrorHorizontalToolStripMenuItem_Click);
             // 
             // sepiaColorToolStripMenuItem
             // 
             this.sepiaColorToolStripMenuItem.Name = "sepiaColorToolStripMenuItem";
-            this.sepiaColorToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.sepiaColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sepiaColorToolStripMenuItem.Text = "Sepia Color";
             this.sepiaColorToolStripMenuItem.Click += new System.EventHandler(this.sepiaColorToolStripMenuItem_Click);
             // 
@@ -261,6 +263,13 @@
             this.openFileDialog3.FileName = "openFileDialog3";
             this.openFileDialog3.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog3_FileOk);
             // 
+            // histogramToolStripMenuItem
+            // 
+            this.histogramToolStripMenuItem.Name = "histogramToolStripMenuItem";
+            this.histogramToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.histogramToolStripMenuItem.Text = "Histogram";
+            this.histogramToolStripMenuItem.Click += new System.EventHandler(this.histogramToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -317,5 +326,6 @@
         private SaveFileDialog saveFileDialog2;
         private OpenFileDialog openFileDialog3;
         private ToolStripMenuItem saveSecondImageToolStripMenuItem;
+        private ToolStripMenuItem histogramToolStripMenuItem;
     }
 }
