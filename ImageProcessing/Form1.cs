@@ -1,9 +1,14 @@
+using System.Drawing;
+using System.Windows.Forms;
+using WebCamLib;
+using ImageProcess2;
 namespace ImageProcessing
 {
     public partial class Form1 : Form
     {
         Bitmap loaded, processed;
-        Bitmap imageB, imageA, colorgreen, resultImage;
+        Bitmap imageB, imageA, resultImage;
+        Device [] devices;
         public Form1()
         {
             InitializeComponent();
@@ -176,6 +181,102 @@ namespace ImageProcessing
             pictureBox5.Image = resultImage;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            devices = DeviceManager.GetAllDevices(); ;
+        }
+
+        private void onToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            devices[0].ShowWindow(pictureBox1);
+        }
+
+        private void offToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            devices[0].Stop();
+        }
+
+        private void smoothToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.Smooth(loaded, 1);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.GaussianBlur(loaded, 4);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void sharpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.Sharpen(loaded, 11);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void meanRemovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.GaussianBlur(loaded, 9);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void embossingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.EmbossLaplacian(loaded);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void edgeDetectQuickToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.EdgeDetectQuick(loaded);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void horzVerticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void verticalOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.EmbossLaplacianVertical(loaded);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void horizontalOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.EmbossLaplacianHorizontal(loaded);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void horzVerticalToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.EmbossLaplacianHorzVert(loaded);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void allDirectionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.EmbossLaplacianAllDir(loaded);
+
+            pictureBox2.Image = loaded;
+        }
+
+        private void lossyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool succes = BitmapFilter.EmbossLaplacianLossy(loaded);
+
+            pictureBox2.Image = loaded;
+        }
 
         private void mirrorVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
